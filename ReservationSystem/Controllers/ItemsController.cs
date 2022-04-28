@@ -21,10 +21,11 @@ namespace ReservationSystem.Controllers
         private readonly IItemService _service;
         private readonly IUserAuthenticationService _authenticationService;
 
-        public ItemsController(IItemService service, IUserAuthenticationService authenticationService)
+        public ItemsController(IItemService service, IUserAuthenticationService authenticationService, ReservationContext context)
         {
             _service = service;
             _authenticationService = authenticationService;
+            _context = context;
         }
         /* // GET: api/Items
         [HttpGet]
@@ -46,7 +47,7 @@ namespace ReservationSystem.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<IEnumerable<Item>>> GetItems(long id)
         {
-            /*
+            
             var item = await _context.Items.FindAsync(id);
             if (item == null)
             {
@@ -54,7 +55,7 @@ namespace ReservationSystem.Controllers
             }
             
             return item;
-            */
+            
             return Ok(await _service.GetAllItems());
         }
         
@@ -116,7 +117,7 @@ namespace ReservationSystem.Controllers
         [HttpPost]
         public async Task<ActionResult<Item>> PostItem(ItemDTO item)
         {
-            //Tarkista onko oikeus muokata?
+           //Oikeus muokata?
             bool isAllowed = await _authenticationService.IsAllowed(this.User.FindFirst(ClaimTypes.Name).Value, item);
             if (!isAllowed)
             {
@@ -136,17 +137,17 @@ namespace ReservationSystem.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Item>> DeleteItem(long id)
         {
-            //var item = await _context.Items.FindAsync(id);
-            //if (item == null)
-            // {
-            //    return NotFound();
-            //}
+            var item = await _context.Items.FindAsync(id);
+            if (item == null)
+             {
+                return NotFound();
+            }
 
-            // _context.Items.Remove(item);
-            // await _context.SaveChangesAsync();
+             _context.Items.Remove(item);
+             await _context.SaveChangesAsync();
 
-            // return item;
-            return null;
+             return item;
+            //return null;
         }
     }
 }
