@@ -8,3 +8,6 @@ muokkaaminen on mahdollista vain kirjautuneelle käyttäjälle (ja olemassa olev
 
 Back-end -> Visual Studio /
 Front-end -> Visual Studio Code
+
+Backend API-funktiot täytyy dokumentoida. Siihen käy joko Swagger tai funktioiden listaus ja selitykset Readme.md tiedostossa.
+
