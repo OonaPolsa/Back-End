@@ -61,7 +61,7 @@ namespace ReservationSystem.Middleware
             {
                 roles = "Admin";
             }
-            var claims= new[]
+            var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -71,8 +71,8 @@ namespace ReservationSystem.Middleware
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);
-        
-     
+
+
             return AuthenticateResult.Success(ticket);
         }
     }

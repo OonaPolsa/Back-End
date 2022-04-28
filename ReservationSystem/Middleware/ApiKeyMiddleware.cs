@@ -19,7 +19,7 @@ namespace ReservationSystem.Middleware
         }
         public async Task InvokeAsync(HttpContext context)
         {
-            if(!context.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
+            if (!context.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
             {
                 context.Response.StatusCode = 401;
                 await context.Response.WriteAsync("Api key missing");
@@ -37,6 +37,6 @@ namespace ReservationSystem.Middleware
             }
             await _next(context);
         }
-            
+
     }
 }
