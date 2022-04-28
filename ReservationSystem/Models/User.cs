@@ -24,6 +24,5 @@ namespace ReservationSystem.Models
         [DefaultValue(false)]
         public bool IsAdmin { get; set; }
         
-
     }
 }

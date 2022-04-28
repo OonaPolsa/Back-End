@@ -8,7 +8,7 @@ namespace ReservationSystem.Models
 {
     public class UserDTO
     {
-        public long Id { get; set; }
+       public long Id { get; set; }
         [Required]
         [MinLength(3)]
         [MaxLength(25)]

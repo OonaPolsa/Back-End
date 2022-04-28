@@ -17,6 +17,5 @@ namespace ReservationSystem.Models
         public String Image { get; set; }
         public String Owner { get; set; }
 
-
     }
 }
