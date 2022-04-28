@@ -26,8 +26,6 @@ namespace ReservationSystem.Repositories
 
             }
             return res;
-
-
         }
 
         public async Task<Reservation> GetReservationAsync(long id)

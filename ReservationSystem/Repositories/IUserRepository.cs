@@ -14,6 +14,6 @@ namespace ReservationSystem.Repositories
         public Task<User> UptadeUserAsync(User user);
         public Task<User> GetUserAsync(long id);
         public Task <Boolean> DeleteUserAsync(User user);
-        
+       
     }
 }

@@ -79,7 +79,6 @@ namespace ReservationSystem.Repositories
             return null;
         }
 
-        
 
         Task<bool> IUserRepository.DeleteUserAsync(User user)
         {

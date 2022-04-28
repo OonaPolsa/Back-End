@@ -14,4 +14,5 @@ namespace ReservationSystem.Repositories
         public Task<IEnumerable<Item>> GetItemsOfUser(User user);
         public Task<IEnumerable<Item>> QueryItems(String query);
     }
+
 }
