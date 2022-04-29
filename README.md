@@ -9,5 +9,5 @@ muokkaaminen on mahdollista vain kirjautuneelle käyttäjälle (ja olemassa olev
 Back-end -> Visual Studio /
 Front-end -> Visual Studio Code
 
-Backend API-funktioiden dokumentaatio Swagger tiedostosta. 
+Backend API-funktioiden dokumentaatio löytyy Swagger tiedostosta. 
 
