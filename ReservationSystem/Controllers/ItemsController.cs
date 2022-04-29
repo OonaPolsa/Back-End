@@ -20,6 +20,7 @@ namespace ReservationSystem.Controllers
         //private readonly ReservationContext _context;
         private readonly IItemService _service;
         private readonly IUserAuthenticationService _authenticationService;
+        private readonly ReservationContext _context;
 
         public ItemsController(IItemService service, IUserAuthenticationService authenticationService, ReservationContext context)
         {
@@ -53,7 +54,7 @@ namespace ReservationSystem.Controllers
             {
                 return NotFound();
             }
-            
+
             return item;
             
             return Ok(await _service.GetAllItems());
