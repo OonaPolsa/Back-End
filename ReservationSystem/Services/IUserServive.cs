@@ -14,5 +14,6 @@ namespace ReservationSystem.Services
         public Task<UserDTO> GetUserAsync(long id);
         public Task<UserDTO> UptadeUserAsync(UserDTO user);
         public Task<Boolean> DeleteUserAsync(long id);
+        Task<UserDTO> GetUserAsync(string username);
     }
 }

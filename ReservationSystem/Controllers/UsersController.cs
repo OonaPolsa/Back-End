@@ -60,7 +60,7 @@ namespace ReservationSystem.Controllers
             }
             return user;
         }
-
+        
         // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -70,6 +70,7 @@ namespace ReservationSystem.Controllers
         /// <param name="id">Id of the user</param>
         /// <param name="user">User´s new information</param>
         /// <returns></returns>
+        /// 
         [HttpPut("{username}")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]

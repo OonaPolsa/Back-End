@@ -105,5 +105,9 @@ namespace ReservationSystem.Services
             return dto;
         }
 
+        public Task<UserDTO> GetUserAsync(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

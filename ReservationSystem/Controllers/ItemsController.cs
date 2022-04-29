@@ -28,6 +28,8 @@ namespace ReservationSystem.Controllers
             _authenticationService = authenticationService;
             _context = context;
         }
+        
+        
         /* // GET: api/Items
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Item>>> GetItems()
@@ -37,14 +39,27 @@ namespace ReservationSystem.Controllers
         }
        */
 
+        
         // GET: api/Items
+        /// <summary>
+        /// Gets a list of all items
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<IEnumerable<ItemDTO>>> GetItems()
         {
             return Ok(await _service.GetAllItems());
         }
+        
+        
         // GET: api/Items/5
+        /// <summary>
+        /// Gets one item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<IEnumerable<Item>>> GetItems(long id)
         {
@@ -55,12 +70,18 @@ namespace ReservationSystem.Controllers
                 return NotFound();
             }
 
-            return item;
+            //return item;
             
             return Ok(await _service.GetAllItems());
         }
+
         
         // GET: api/Items/Username
+        /// <summary>
+        /// Gets items by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         [HttpGet("user/{username}")]
         [Authorize]
         public async Task<ActionResult<IEnumerable<ItemDTO>>> GetItems(String username)
@@ -69,7 +90,14 @@ namespace ReservationSystem.Controllers
             return Ok(await _service.GetItems(username));
 
         }
+        
+        
         // GET: api/Items/query
+        /// <summary>
+        /// Returns all items
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [HttpGet("{query}")]
         [Authorize]
 
@@ -80,6 +108,13 @@ namespace ReservationSystem.Controllers
            
 
         // PUT: api/Items/5
+        /// <summary>
+        /// Edit item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -113,6 +148,12 @@ namespace ReservationSystem.Controllers
         }
 
         // POST: api/Items
+        /// <summary>
+        /// Creates a new item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -135,6 +176,11 @@ namespace ReservationSystem.Controllers
         }
 
         // DELETE: api/Items/5
+        /// <summary>
+        /// Deletes selected item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Item>> DeleteItem(long id)
         {
